@@ -1,0 +1,254 @@
+Color Theme Swatches in Hex 
+
+.Graphic-Design-1-hex { color: #09090D; }
+.Graphic-Design-2-hex { color: #181D26; }
+.Graphic-Design-3-hex { color: #77828C; }
+.Graphic-Design-4-hex { color: #AAB5BF; }
+.Graphic-Design-5-hex { color: #E4EBF2; } 
+
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+}
+
+html,
+body {
+    height: 100%;
+    font-family: 'Rubik', sans-serif;
+    background-color: #09090D;
+}
+
+header,
+footer,
+nav,
+article,
+aside {
+    padding: 1em;
+}
+
+header {
+    height: 15vh;
+    background-color: #181D26;
+}
+
+main,
+article {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: stretch;
+    min-height: calc(100vh - 40vh);
+    background-color: #09090D;
+}
+
+main > nav,
+main > aside {
+    flex: 0 0 20vw;
+    background: #09090D;
+}
+
+main > article {
+    flex: 1;
+    flex-direction: row;
+}
+
+main > nav {
+    order: -1;
+}
+
+article > .card {
+    flex: 1 1 400px;
+    flex-wrap: wrap;
+    margin: 10px;
+    padding-bottom: 50px;
+    min-height: 900px;
+    border: 1px solid #ccc;
+    box-shadow: 5px 5px #FF3B3F;
+    background-color: #E4EBF2;
+}
+
+.card > .thumbnail {
+    width: 100%;
+    height: 75%;
+    object-fit: cover;
+    overflow: hidden;
+}
+
+article > .card .card-content {
+    padding: 0 30px 30px;
+}
+
+aside > p {
+    font-size: clamp(1rem, 2.5vw, 2rem);
+    line-height: 1.5;
+    padding: 20px;
+    color: #A9A9A9;
+    display: inline;
+}
+
+.drop-cap {
+    color: #FF3B3F;
+    float: left;
+    font-size: clamp(4vw, 10rem, 12vw);
+    line-height: .2;
+    margin-left: -1vw;
+    margin-top: 5vh;
+    /* I feel like this is an inelegant solution to creating a drop-cap. It's fine at full size, but it's not doing what I want when I scale it down. Is there a better way to do this? I thought about using an icon, which, honestly, is probably so much easier. But I considered it a little bit of a challenge to try to do it with the font chosen for the overall typography of the page. */
+}
+
+footer {
+    height: 5vh;
+    text-align: center;
+    color: white;
+    background-color: #77828C;
+}
+
+.button {
+    margin: 30px;
+    border-radius: 5px;
+    box-shadow: 1px 1px 2px 0px black;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    padding: 8px;
+    background-color: #77828C;
+}
+
+.button:hover {
+    background-color: #AAB5BF;
+}
+
+.card-content > p {
+    font-weight: 300;
+    font-size: clamp(1em, 1rem, .5rem);
+    /* font-size: calc(.06vw + 1vmin + .1vmax); */
+}
+
+@media (max-width: 800px) {
+    main, nav, article, aside {
+        flex-direction: column;
+        flex: 100%;
+    }
+
+    aside {
+        order: 1;
+    }
+
+    article {
+        order: 2;
+    }
+
+    nav {
+        order: 3;
+    }
+}
+
+h1 {
+    font-size: clamp(2vw, 4rem, 6vw);
+    text-align: center;
+    padding-top: 3vh;
+    color: #FF3B3F;
+}
+
+h3 {
+    text-align: left;
+    margin-top: 20px;
+    font-size: clamp(1vw, 2rem, 2.5vw);
+    /* font-size: calc(.2vw + 2vmin + .2vmax); */
+    font-weight: 800;
+    color: #FF3B3F;
+}
+
+p {
+    line-height: 1.75;
+    padding-top: 15px;
+}
+
+.long-text {
+    position: absolute;
+}
+
+.large-asterisk {
+    position: relative;
+    font-size: calc(5vw + 2vmin + .2vmax);
+    color: #FF3B3F;
+    line-height: 0;
+}
+
+.popup {
+    position: fixed;
+    padding: 10px;
+    max-width: 400px;
+    border-radius: 5px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background: #09090D;
+    visibility: hidden;
+    opacity: 0;
+    -webkit-transition: opacity .5s, visibility 0s linear .5s;
+    transition: opacity .5s, visibility 0s linear .5s;
+    z-index: 1;
+}
+
+.popup:target {
+    visibility: visible;
+    opacity: 1;
+    -webkit-transition-delay: 0s;
+    transition-delay: 0s;
+}
+
+.popup-close {
+    position: absolute;
+    padding: 10px;
+    max-width: 400px;
+    border-radius: 5px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background: #09090D;
+}
+
+.popup .close {
+    position: absolute;
+    right: -200px;
+    top: 10px;
+    color: #77828C;
+    transition: color .3s;
+    font-size: 2em;
+    line-height: .6em;
+    font-weight: bold;
+}
+
+.popup .close:hover {
+    color: #FF3B3F;
+}
+
+.close-popup {
+    background: rgba(0,0,0,.7);
+    cursor: default;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+    visibility: hidden;
+    -webkit-transition: opacity .5s, visibility 0s linear .5s;
+    transition: opacity .5s, visibility 0s linear .5s;
+}
+
+.popup:target + .close-popup {
+    opacity: 1;
+    visibility: visible;
+    -webkit-transition-delay: 0s;
+    transition-delay: 0s;
+}
+
